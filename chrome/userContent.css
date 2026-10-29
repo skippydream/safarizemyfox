@@ -1,4 +1,6 @@
 @-moz-document url("about:newtab"), url("about:home") {
+  /* Matches the dark UI set in user.js; remove for browser.theme.toolbar-theme = 1. */
+  :root { color-scheme: dark !important; }
   :root, body, .outer-wrapper, main {
     background: transparent !important;
     --newtab-background-color: transparent !important;

@@ -57,6 +57,9 @@
 #sidebar-main { border-inline-end: 1px solid var(--chrome-content-separator-color) !important; }
 #sidebar-splitter { border: none !important; width: 1px !important; }
 
+/* Empty address bar = about:home / about:newtab: let the glass show through the page. */
+#main-window:has(#urlbar[pageproxystate="invalid"]) .browserContainer { background: transparent !important; }
+
 /* Address bar */
 #urlbar-container { max-width: 640px !important; margin-inline: auto !important; }
 #urlbar { --urlbar-min-height: 30px !important; }
