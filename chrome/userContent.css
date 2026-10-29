@@ -1,0 +1,19 @@
+@-moz-document url("about:newtab"), url("about:home") {
+  :root, body, .outer-wrapper, main {
+    background: transparent !important;
+    --newtab-background-color: transparent !important;
+    --newtab-background-color-secondary: color-mix(in srgb, currentColor 6%, transparent) !important;
+    --newtab-primary-action-background: AccentColor !important;
+    --color-accent-primary: AccentColor !important;
+  }
+  .logo-and-wordmark, .logo-and-wordmark-wrapper, .wordmark { display: none !important; }
+  .top-site-outer .tile {
+    border-radius: 14px !important;
+    box-shadow: none !important;
+    background: color-mix(in srgb, currentColor 6%, transparent) !important;
+  }
+}
+
+@-moz-document url("about:blank") {
+  html, body { background: transparent !important; }
+}

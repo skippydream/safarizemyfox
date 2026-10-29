@@ -1,0 +1,133 @@
+/* Requires the default "System theme — auto" theme. */
+
+:root:not([lwtheme]) {
+  --color-accent-primary: AccentColor !important;
+  --color-accent-primary-hover: color-mix(in srgb, AccentColor 88%, black) !important;
+  --color-accent-primary-active: color-mix(in srgb, AccentColor 76%, black) !important;
+  --button-background-color-primary: AccentColor !important;
+  --button-text-color-primary: AccentColorText !important;
+  --focus-outline-color: AccentColor !important;
+  --toolbar-field-focus-border-color: color-mix(in srgb, AccentColor 55%, transparent) !important;
+  --lwt-accent-color: transparent !important;
+}
+
+/* Scoped to the main window: userChrome.css also loads in dialogs. */
+#main-window:not([lwtheme]) {
+  --toolbox-background-image: none !important;
+  --toolbar-bgcolor: transparent !important;
+  --toolbox-bgcolor: transparent !important;
+  --toolbox-bgcolor-inactive: transparent !important;
+  --sidebar-background-color: transparent !important;
+  --tabs-navbar-separator-style: none !important;
+  --chrome-content-separator-color: color-mix(in srgb, currentColor 14%, transparent) !important;
+  --toolbar-field-background-color: color-mix(in srgb, currentColor 6%, transparent) !important;
+  --toolbar-field-border-color: transparent !important;
+  --toolbar-field-focus-background-color: Field !important;
+  --tab-selected-bgcolor: color-mix(in srgb, currentColor 10%, transparent) !important;
+  --tab-selected-shadow: none !important;
+  --tab-hover-background-color: color-mix(in srgb, currentColor 6%, transparent) !important;
+  --tab-border-radius: 7px !important;
+  --toolbarbutton-border-radius: 6px !important;
+
+  &, & body,
+  & #navigator-toolbox, & #nav-bar, & #TabsToolbar, & #PersonalToolbar, & #titlebar,
+  & #browser, & #sidebar-main, & #sidebar-box, & #sidebar-splitter, & #vertical-tabs,
+  & #tabbrowser-tabbox, & #tabbrowser-tabpanels {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* One vibrancy layer behind the whole UI. */
+  & body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    appearance: auto !important;
+    -moz-default-appearance: -moz-window-titlebar !important;
+  }
+}
+
+/* Layout */
+#navigator-toolbox { border-bottom: 1px solid var(--chrome-content-separator-color) !important; }
+#nav-bar { padding-block: 6px !important; border: none !important; }
+#PersonalToolbar { border: none !important; }
+#tabbrowser-tabbox { margin: 0 !important; border: none !important; border-radius: 0 !important; outline: none !important; }
+#tabbrowser-tabpanels, #tabbrowser-tabpanels browser, .browserStack { border-radius: 0 !important; }
+#sidebar-main { border-inline-end: 1px solid var(--chrome-content-separator-color) !important; }
+#sidebar-splitter { border: none !important; width: 1px !important; }
+
+/* Address bar */
+#urlbar-container { max-width: 640px !important; margin-inline: auto !important; }
+#urlbar { --urlbar-min-height: 30px !important; }
+#urlbar-background { border: none !important; border-radius: 8px !important; }
+#urlbar[focused] > #urlbar-background {
+  box-shadow: 0 0 0 3px color-mix(in srgb, AccentColor 45%, transparent) !important;
+  outline: none !important;
+}
+#urlbar-input { text-align: center; }
+#urlbar[focused] #urlbar-input { text-align: start; }
+#urlbar .searchmode-switcher,
+#tracking-protection-icon-container,
+#identity-permission-box,
+#page-action-buttons > :not(#star-button-box, #reader-mode-button) { display: none !important; }
+
+#urlbar[open] > #urlbar-background {
+  background: color-mix(in srgb, Field 72%, transparent) !important;
+  backdrop-filter: blur(30px) saturate(180%) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .22), 0 0 0 .5px rgba(0, 0, 0, .12) !important;
+}
+.urlbarView-row { border-radius: 7px !important; }
+.urlbarView-row[selected] { background: AccentColor !important; color: AccentColorText !important; }
+
+/* Indeterminate: Firefox doesn't expose load progress to CSS. */
+#main-window:has(.tabbrowser-tab[selected][busy]) #urlbar:not([focused]) > #urlbar-background {
+  background-image: linear-gradient(90deg, transparent, color-mix(in srgb, AccentColor 22%, transparent), transparent) !important;
+  background-size: 40% 100% !important;
+  background-repeat: no-repeat !important;
+  animation: urlbar-loading 1.2s ease-in-out infinite;
+}
+@keyframes urlbar-loading { from { background-position: -40% 0; } to { background-position: 140% 0; } }
+
+/* Toolbar buttons */
+#nav-bar toolbarbutton { --toolbarbutton-hover-background: color-mix(in srgb, currentColor 8%, transparent) !important; }
+#nav-bar .toolbarbutton-icon { opacity: .8; }
+#reload-button, #stop-button { opacity: .7; }
+
+/* Tabs */
+.tab-background { border: none !important; outline: none !important; }
+.tabbrowser-tab[selected] .tab-background { background: var(--tab-selected-bgcolor) !important; }
+.tabbrowser-tab:not(:hover) .tab-close-button { opacity: 0 !important; }
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab { min-height: 30px !important; padding-block: 1px !important; }
+#tabbrowser-tabs[orient="vertical"] .tab-label { font-size: 13px !important; }
+#PersonalToolbar toolbarbutton.bookmark-item { font-size: 12px !important; opacity: .85; }
+
+/* Menus */
+panel, menupopup {
+  --panel-background: color-mix(in srgb, Menu 82%, transparent) !important;
+  --panel-border-radius: 10px !important;
+  --arrowpanel-border-radius: 10px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  #main-window:not([lwtheme]) {
+    --chrome-content-separator-color: rgba(0, 0, 0, .55) !important;
+    --toolbar-field-background-color: rgba(255, 255, 255, .07) !important;
+    --toolbar-field-focus-background-color: rgba(28, 28, 30, .92) !important;
+    --toolbar-field-color: rgba(255, 255, 255, .92) !important;
+    --tab-selected-bgcolor: rgba(255, 255, 255, .11) !important;
+    --tab-hover-background-color: rgba(255, 255, 255, .06) !important;
+    --toolbarbutton-icon-fill: rgba(255, 255, 255, .78) !important;
+    color: rgba(255, 255, 255, .88) !important;
+  }
+  #main-window:not([lwtheme]) #navigator-toolbox { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06) !important; }
+  #urlbar[open] > #urlbar-background {
+    background: rgba(40, 40, 44, .72) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .5), 0 0 0 .5px rgba(255, 255, 255, .12) !important;
+  }
+  panel, menupopup {
+    --panel-background: rgba(36, 36, 40, .78) !important;
+    --panel-border-color: rgba(255, 255, 255, .1) !important;
+  }
+}
