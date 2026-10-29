@@ -1,5 +1,6 @@
 # safarizemyfox
 
+Progetto vibecoded.
 Firefox per macOS con l'aspetto di Safari: barre e sidebar trasparenti con la sfocatura nativa di macOS, colore di accento di sistema, barra indirizzi centrata, pagina nuova scheda minimale e tema scuro "vetro".
 
 ## Requisiti
