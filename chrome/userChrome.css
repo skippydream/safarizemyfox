@@ -19,7 +19,7 @@
   --toolbox-bgcolor-inactive: transparent !important;
   --sidebar-background-color: transparent !important;
   --tabs-navbar-separator-style: none !important;
-  --chrome-content-separator-color: color-mix(in srgb, currentColor 14%, transparent) !important;
+  --chrome-content-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
   --toolbar-field-background-color: color-mix(in srgb, currentColor 6%, transparent) !important;
   --toolbar-field-border-color: transparent !important;
   --toolbar-field-focus-background-color: Field !important;
@@ -115,7 +115,7 @@ panel, menupopup {
 
 @media (prefers-color-scheme: dark) {
   #main-window:not([lwtheme]) {
-    --chrome-content-separator-color: rgba(0, 0, 0, .55) !important;
+    --chrome-content-separator-color: rgba(0, 0, 0, .25) !important;
     --toolbar-field-background-color: rgba(255, 255, 255, .07) !important;
     --toolbar-field-focus-background-color: rgba(28, 28, 30, .92) !important;
     --toolbar-field-color: rgba(255, 255, 255, .92) !important;
