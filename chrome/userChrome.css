@@ -57,7 +57,7 @@
 #sidebar-main { border-inline-end: 1px solid var(--chrome-content-separator-color) !important; }
 #sidebar-splitter { border: none !important; width: 1px !important; }
 
-/* Empty address bar = about:home / about:newtab: let the glass show through the page. */
+/* about:home and about:newtab have an empty address bar. */
 #main-window:has(#urlbar[pageproxystate="invalid"]) .browserContainer { background: transparent !important; }
 
 /* Address bar */
@@ -68,7 +68,7 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, AccentColor 45%, transparent) !important;
   outline: none !important;
 }
-#urlbar-input { text-align: center; }
+#urlbar-input { text-align: center; padding-inline: 10px !important; }
 #urlbar[focused] #urlbar-input { text-align: start; }
 #urlbar .searchmode-switcher,
 #tracking-protection-icon-container,

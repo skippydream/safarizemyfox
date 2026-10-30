@@ -1,18 +1,23 @@
 @-moz-document url("about:newtab"), url("about:home") {
-  /* Matches the dark UI set in user.js; remove for browser.theme.toolbar-theme = 1. */
-  :root { color-scheme: dark !important; }
   :root, body, .outer-wrapper, main {
     background: transparent !important;
     --newtab-background-color: transparent !important;
-    --newtab-background-color-secondary: color-mix(in srgb, currentColor 6%, transparent) !important;
     --newtab-primary-action-background: AccentColor !important;
     --color-accent-primary: AccentColor !important;
   }
   .logo-and-wordmark, .logo-and-wordmark-wrapper, .wordmark { display: none !important; }
+
+  .search-wrapper content-search-handoff-ui {
+    --content-search-handoff-ui-background-color: color-mix(in srgb, Field 82%, transparent) !important;
+    --content-search-handoff-ui-color: FieldText !important;
+    --content-search-handoff-ui-fill: color-mix(in srgb, FieldText 65%, transparent) !important;
+    --content-search-handoff-ui-caret-color: AccentColor !important;
+  }
+
   .top-site-outer .tile {
     border-radius: 14px !important;
     box-shadow: none !important;
-    background: color-mix(in srgb, currentColor 6%, transparent) !important;
+    background: color-mix(in srgb, Field 60%, transparent) !important;
   }
 }
 
