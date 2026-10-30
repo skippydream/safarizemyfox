@@ -19,7 +19,7 @@
   --toolbox-bgcolor-inactive: transparent !important;
   --sidebar-background-color: transparent !important;
   --tabs-navbar-separator-style: none !important;
-  --chrome-content-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
+  --chrome-content-separator-color: transparent !important;
   --toolbar-field-background-color: color-mix(in srgb, currentColor 6%, transparent) !important;
   --toolbar-field-border-color: transparent !important;
   --toolbar-field-focus-background-color: Field !important;
@@ -49,12 +49,12 @@
 }
 
 /* Layout */
-#navigator-toolbox { border-bottom: 1px solid var(--chrome-content-separator-color) !important; }
+#navigator-toolbox { border-bottom: none !important; }
 #nav-bar { padding-block: 6px !important; border: none !important; }
 #PersonalToolbar { border: none !important; }
 #tabbrowser-tabbox { margin: 0 !important; border: none !important; border-radius: 0 !important; outline: none !important; }
 #tabbrowser-tabpanels, #tabbrowser-tabpanels browser, .browserStack { border-radius: 0 !important; }
-#sidebar-main { border-inline-end: 1px solid var(--chrome-content-separator-color) !important; }
+#sidebar-main { border: none !important; }
 #sidebar-splitter { border: none !important; width: 1px !important; }
 
 /* about:home and about:newtab have an empty address bar. */
@@ -115,7 +115,6 @@ panel, menupopup {
 
 @media (prefers-color-scheme: dark) {
   #main-window:not([lwtheme]) {
-    --chrome-content-separator-color: rgba(0, 0, 0, .25) !important;
     --toolbar-field-background-color: rgba(255, 255, 255, .07) !important;
     --toolbar-field-focus-background-color: rgba(28, 28, 30, .92) !important;
     --toolbar-field-color: rgba(255, 255, 255, .92) !important;
