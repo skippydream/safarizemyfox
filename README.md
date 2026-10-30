@@ -3,6 +3,16 @@
 Progetto vibecoded.
 Firefox per macOS con l'aspetto di Safari: barre e sidebar trasparenti con la sfocatura nativa di macOS, colore di accento di sistema, barra indirizzi centrata, pagina nuova scheda minimale e tema scuro "vetro".
 
+## Screenshot
+
+Pagina iniziale: la finestra lascia vedere la scrivania sfocata, come la pagina di apertura di Safari.
+
+![Pagina iniziale di Firefox con sfondo trasparente e sfocato](docs/start-page.jpg)
+
+Un sito qualsiasi: barra e sidebar restano di vetro, la pagina è opaca.
+
+![Firefox su Wikipedia con barra e sidebar trasparenti](docs/website.jpg)
+
 ## Requisiti
 
 - macOS
@@ -46,4 +56,5 @@ user_pref("browser.theme.toolbar-theme", 0); // 0 scuro, 1 chiaro, 2 segue macOS
 
 - Le pagine web restano opache, come in Safari.
 - La barra di caricamento non mostra l'avanzamento reale: Firefox non lo espone al CSS.
+- Quando la finestra non è in primo piano la trasparenza si spegne. Safari la mantiene, ma Firefox imposta il vetro su `NSVisualEffectStateFollowsWindowActiveState` nel codice (`widget/cocoa/VibrancyManager.mm`) e nessuna impostazione lo cambia.
 - `userChrome.css` usa selettori interni di Firefox, che un aggiornamento può cambiare.
